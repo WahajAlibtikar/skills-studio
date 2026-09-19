@@ -5,14 +5,6 @@ const INVOICE_STORAGE_KEY = 'uddah_invoice_id';
 const checkoutButton = document.querySelector('#checkout-button');
 const checkoutMessage = document.querySelector('#checkout-message');
 
-function scrollToCheckout() {
-  document.querySelector('#checkout')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-}
-
-document.querySelectorAll('[data-buy]').forEach((button) => {
-  button.addEventListener('click', scrollToCheckout);
-});
-
 async function startCheckout() {
   checkoutButton.disabled = true;
   checkoutButton.textContent = 'جارٍ تجهيز صفحة الدفع…';
@@ -29,12 +21,18 @@ async function startCheckout() {
       throw new Error(data.error || 'تعذر إنشاء فاتورة الدفع.');
     }
 
+    const checkoutUrl = new URL(data.url);
+    const isMoyasarUrl = checkoutUrl.hostname === 'moyasar.com' || checkoutUrl.hostname.endsWith('.moyasar.com');
+    if (checkoutUrl.protocol !== 'https:' || !isMoyasarUrl) {
+      throw new Error('تعذر التحقق من رابط صفحة الدفع. حاول مرة أخرى.');
+    }
+
     try {
       sessionStorage.setItem(INVOICE_STORAGE_KEY, data.invoiceId);
     } catch {
       throw new Error('تعذر حفظ بيانات الطلب في المتصفح. تأكد من السماح بالتخزين المؤقت ثم حاول مرة أخرى.');
     }
-    window.location.assign(data.url);
+    window.location.assign(checkoutUrl.href);
   } catch (error) {
     checkoutMessage.textContent = error.message || 'تعذر بدء عملية الدفع. حاول مرة أخرى.';
     checkoutButton.disabled = false;
@@ -104,7 +102,11 @@ async function verifyCompletedCheckout() {
       return;
     }
 
-    sessionStorage.removeItem(INVOICE_STORAGE_KEY);
+    try {
+      sessionStorage.removeItem(INVOICE_STORAGE_KEY);
+    } catch {
+      // The purchase is already verified; unavailable browser storage should not block the download.
+    }
 
     if (data.downloadUrl) {
       const downloadUrl = new URL(data.downloadUrl, window.location.origin);
