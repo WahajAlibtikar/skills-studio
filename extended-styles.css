@@ -15,7 +15,7 @@
 }
 .stats-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 24px;
   padding-block: 30px;
 }
@@ -29,6 +29,10 @@
 .stat-item:first-child {
   border-inline-start: 0;
   padding-inline-start: 0;
+}
+.stat-item:nth-child(2) {
+  border-inline-start: 1px solid #36483d;
+  padding-inline-start: 20px;
 }
 .stat-item strong {
   font-size: 1.15rem;

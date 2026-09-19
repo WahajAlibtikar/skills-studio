@@ -6,6 +6,7 @@ const productDialog = document.querySelector('#product-dialog');
 const cartDialog = document.querySelector('#cart-dialog');
 const homeView = document.querySelector('#home-view');
 const skillsHubView = document.querySelector('#skills-hub-view');
+const toolsHubView = document.querySelector('#tools-hub-view');
 let toastTimer;
 
 // إظهار رسالة التنبيه السريعة (Toast)
@@ -19,15 +20,15 @@ function showToast(message) {
 
 // تبديل العرض بين الصفحة الرئيسية وصفحة المهارات الكاملة
 function switchToView(viewName) {
+  homeView.classList.toggle('hidden', viewName !== 'home');
+  skillsHubView.classList.toggle('active', viewName === 'skills-hub');
+  toolsHubView.classList.toggle('active', viewName === 'tools-hub');
   if (viewName === 'skills-hub') {
-    homeView.classList.add('hidden');
-    skillsHubView.classList.add('active');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
     renderAllProducts('all');
-  } else {
-    skillsHubView.classList.remove('active');
-    homeView.classList.remove('hidden');
+  } else if (viewName === 'tools-hub') {
+    renderToolsDirectory();
   }
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 // معاينة محتوى ملف المهارة في البطل (Hero Interactive Preview)
@@ -87,20 +88,11 @@ function createProductCardHTML(p) {
 }
 
 // حقن منتجات الصفحة الرئيسية
-function renderHomeProducts(category = 'all') {
+function renderHomeProducts() {
   const container = document.querySelector('#home-products-grid');
   if (!container) return;
 
-  const items = Object.values(products).filter(p => {
-    if (p.id === 'studio') return false; // معروضة في قسم منفصل
-    if (category === 'all') return true;
-    return p.category === category;
-  });
-
-  // في الصفحة الرئيسية نعرض أبرز 4 أو 6 منتجات حسب التصنيف
-  const displayedItems = category === 'all' 
-    ? items.filter(p => p.featured || ['hr_hiring', 'finance_pricing', 'mentorship_career', 'design', 'frontend', 'backend'].includes(p.id)).slice(0, 6)
-    : items;
+  const displayedItems = ['design', 'frontend', 'backend', 'database'].map(id => products[id]);
 
   container.innerHTML = displayedItems.map(createProductCardHTML).join('');
 }
@@ -161,6 +153,12 @@ function renderTrainingTracks() {
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" style="width:16px;height:16px;"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
             <strong>الفئة المستهدفة:</strong> <span>${track.audience}</span>
           </div>
+          <div class="track-meta-row">
+            <strong>بداية المسار:</strong> <span>${track.startDate}</span>
+          </div>
+          <div class="track-meta-row">
+            <strong>المقاعد:</strong> <span>${track.seats} مقاعد فقط</span>
+          </div>
         </div>
 
         <ul class="track-chapters-list">
@@ -180,7 +178,7 @@ function renderTrainingTracks() {
             <strong>المخرج النهائي:</strong> ${track.outcome}
           </div>
           <button class="button primary" data-track-enroll="${track.id}" style="width:100%;justify-content:center;min-height:48px;">
-            احجز مقعدك في المسار <span aria-hidden="true">←</span>
+            <bdi>${track.price}</bdi> ر.س <span aria-hidden="true">←</span>
           </button>
         </div>
       </article>
@@ -214,11 +212,8 @@ function renderToolsDirectory() {
         </div>
 
         <div class="tool-actions">
-          <a href="${tool.downloadUrl}" target="_blank" rel="noopener noreferrer" class="tool-btn primary" aria-label="تحميل أداة ${tool.name}">
-            تحميل مباشر <span aria-hidden="true">↗</span>
-          </a>
-          <a href="${tool.websiteUrl}" target="_blank" rel="noopener noreferrer" class="tool-btn secondary" aria-label="الموقع الرسمي لأداة ${tool.name}">
-            الموقع الرسمي
+          <a href="${tool.websiteUrl}" target="_blank" rel="noopener noreferrer" class="tool-btn primary" aria-label="زيارة الموقع الرسمي لأداة ${tool.name}">
+            زيارة الموقع الرسمي <span aria-hidden="true">↗</span>
           </a>
         </div>
       </article>
@@ -268,7 +263,7 @@ function addToCart(id) {
     return;
   }
   if (id !== 'studio' && cart.has('studio')) {
-    showToast('المهارة مشمولة بالفعل في حزمة الاستوديو الشاملة');
+    showToast('المهارة مشمولة بالفعل في مهارات النموذج');
     return;
   }
   if (id === 'studio') {
@@ -296,7 +291,7 @@ function renderCart() {
 
   const sum = [...cart].reduce((a, id) => a + (products[id] ? products[id].price : 0), 0);
   el.innerHTML = `
-    ${cart.has('studio') ? '<p class="bundle-conflict">حزمة الاستوديو تشمل كافة المهارات التقنية الأربع بتوفير 40%.</p>' : ''}
+    ${cart.has('studio') ? '<p class="bundle-conflict">مهارات النموذج تشمل المهارات التقنية الأربع بتوفير 40%.</p>' : ''}
     ${[...cart].map(id => {
       const p = products[id];
       if (!p) return '';
@@ -373,18 +368,24 @@ document.addEventListener('click', e => {
   if (trackBtn) {
     const trackId = trackBtn.dataset.trackEnroll;
     const track = trainingTracks.find(t => t.id === trackId);
-    showToast(`تم تسجيل اهتمامك في مسار: ${track.title}. ستبدأ الدفعة القادمة قريباً.`);
+    showToast(`${track.title} — يبدأ ${track.startDate}، والمتاح ${track.seats} مقاعد فقط.`);
     return;
   }
 
   // الانتقال لصفحة المهارات الكاملة
-  if (e.target.closest('#btn-explore-all-skills') || e.target.closest('#btn-open-full-hub')) {
+  if (e.target.closest('#btn-explore-all-skills')) {
     switchToView('skills-hub');
     return;
   }
 
+  if (e.target.closest('#nav-tools-directory')) {
+    e.preventDefault();
+    switchToView('tools-hub');
+    return;
+  }
+
   // العودة للصفحة الرئيسية
-  if (e.target.closest('#btn-back-to-home') || e.target.closest('#brand-home-link') || e.target.closest('#footer-brand-link')) {
+  if (e.target.closest('#btn-back-to-home') || e.target.closest('#btn-back-from-tools') || e.target.closest('#brand-home-link') || e.target.closest('#footer-brand-link')) {
     switchToView('home');
     return;
   }
@@ -403,15 +404,6 @@ document.addEventListener('click', e => {
   if (navLink) {
     switchToView('home');
   }
-});
-
-// فلترة الصفحة الرئيسية
-document.querySelector('#home-filter-tabs')?.addEventListener('click', e => {
-  const btn = e.target.closest('.filter-btn');
-  if (!btn) return;
-  document.querySelectorAll('#home-filter-tabs .filter-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  renderHomeProducts(btn.dataset.homeCat);
 });
 
 // فلترة صفحة المهارات الكاملة
@@ -464,7 +456,7 @@ document.querySelector('.file-tabs')?.addEventListener('keydown', e => {
 });
 
 // التهيئة عند التحميل
-renderHomeProducts('all');
+renderHomeProducts();
 renderTrainingTracks();
 renderToolsDirectory();
 setPreview('design');
