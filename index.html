@@ -4,281 +4,168 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#17241e">
-  <title>عُدّة — مهارات وتدريب وأدوات للذكاء الاصطناعي</title>
-  <meta name="description" content="منظومة متكاملة للمستقلين وفرق العمل: حزم مهارات برمجية وإدارية ومالية وإرشادية، مسارات تدريب عملية، ودليل أدوات الذكاء الاصطناعي.">
-  <meta property="og:title" content="عُدّة — مهارات وتدريب وأدوات للذكاء الاصطناعي">
-  <meta property="og:description" content="منظومة متكاملة للمستقلين وفرق العمل: حزم مهارات برمجية وإدارية ومالية وإرشادية، مسارات تدريب عملية، ودليل أدوات الذكاء الاصطناعي.">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23d4f574'/%3E%3Ctext x='32' y='46' font-size='48' text-anchor='middle' fill='%2317241e'%3Eع%3C/text%3E%3C/svg%3E">
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="extended-styles.css">
-  <script type="module" src="app.js"></script>
+  <title>عُدّة — الحزمة الشاملة لمهارات الذكاء الاصطناعي</title>
+  <meta name="description" content="حزمة عُدّة الشاملة: أربع مهارات تقنية للذكاء الاصطناعي مع دليل البداية وقوالب التسليم، بدفعة واحدة.">
+  <meta property="og:title" content="عُدّة — الحزمة الشاملة">
+  <meta property="og:description" content="نظام التصميم، الواجهات، الخلفية، وقواعد البيانات في حزمة واحدة جاهزة للاستخدام مع مساعدك الذكي.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23d7f786'/%3E%3Ctext x='32' y='46' font-size='48' text-anchor='middle' fill='%2317241e'%3Eع%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./styles.css">
+  <script type="module" src="./app.js"></script>
 </head>
 <body>
   <a class="skip" href="#main">انتقل إلى المحتوى</a>
-  <div class="concept-bar">
-    <span>منظومة «عُدّة» المكتملة · مهارات، تدريب عملي، ودليل أدوات</span>
-    <span>الأسعار مبدئية · المقاعد التدريبية محدودة</span>
+
+  <div class="topbar">
+    <div class="wrap topbar-inner">
+      <span>منتج رقمي واحد · دفعة واحدة</span>
+      <span>التحميل يظهر بعد التحقق من الدفع</span>
+    </div>
   </div>
 
   <header class="header wrap">
-    <a class="brand" href="#" id="brand-home-link" aria-label="عُدّة، الرئيسية">
-      <span class="brand-word">عُدّة<span class="brand-dot">.</span></span>
-      <span class="brand-note">مهارات لها شغل</span>
+    <a class="brand" href="/" aria-label="عُدّة، الرئيسية">
+      <span class="brand-word">عُدّة<span>.</span></span>
+      <small>مهارات لها شغل</small>
     </a>
     <nav aria-label="التنقل الرئيسي">
-      <a href="#collection" class="nav-link" data-nav="skills">المهارات</a>
-      <a href="#training" class="nav-link" data-nav="training">تدريب على أدوات الذكاء الاصطناعي</a>
-      <a href="#bundle" class="nav-link" data-nav="bundle">مهارات النموذج</a>
-      <a href="#tools-directory" class="nav-link" data-nav="tools" id="nav-tools-directory">دليل أدوات الذكاء الاصطناعي</a>
-      <a href="#faq" class="nav-link" data-nav="faq">أسئلة شائعة</a>
+      <a href="#contents">محتوى الحزمة</a>
+      <a href="#how">طريقة الاستخدام</a>
+      <a href="#faq">الأسئلة</a>
     </nav>
-    <button class="bag-button" id="open-cart" aria-label="افتح السلة">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 8h14l1 13H4L5 8Z"/><path d="M8 9V6a4 4 0 0 1 8 0v3"/></svg>
-      <span>السلة</span>
-      <span id="cart-count" class="count">0</span>
-    </button>
+    <button class="button compact primary" data-buy>اشتر الآن</button>
   </header>
 
-  <!-- الصفحة الرئيسية -->
   <main id="main">
-    <div id="home-view" class="home-view">
-      <!-- البطل / Hero -->
-      <section class="hero wrap" aria-labelledby="hero-title">
-        <div class="hero-copy">
-          <div class="eyebrow"><span class="short-line"></span>للمستقلين والفرق الصغيرة في عصر الذكاء الاصطناعي</div>
-          <h1 id="hero-title">شغلك له طريقة.<br>خلّ مساعدك<br><span class="marked">يتعلّمها.</span></h1>
-          <p>مهارات جاهزة توجّه مساعدك في البرمجة، والتصميم، والإدارة، والإدارة المالية. تدرّب على أدوات الجيل القادم.</p>
-        </div>
-
-        <div class="hero-preview" aria-label="معاينة ملفات مهارات النموذج">
-          <div class="preview-top">
-            <span class="mono" dir="ltr">UDDAH / STUDIO KIT</span>
-            <span class="edition">الإصدار المقترح 01</span>
-          </div>
-          <div class="preview-heading">
-            <span>أربع تخصّصات.<br>مشروع واحد.</span>
-            <span class="preview-symbol" aria-hidden="true">↙</span>
-          </div>
-          <div class="file-tabs" role="tablist" aria-label="معاينة المهارات">
-            <button role="tab" aria-selected="true" aria-controls="file-panel" id="tab-design" data-preview="design">التصميم</button>
-            <button role="tab" aria-selected="false" aria-controls="file-panel" id="tab-frontend" data-preview="frontend" tabindex="-1">الواجهة</button>
-            <button role="tab" aria-selected="false" aria-controls="file-panel" id="tab-backend" data-preview="backend" tabindex="-1">الخادم</button>
-            <button role="tab" aria-selected="false" aria-controls="file-panel" id="tab-database" data-preview="database" tabindex="-1">البيانات</button>
-          </div>
-          <div class="file-panel" role="tabpanel" id="file-panel" aria-labelledby="tab-design" tabindex="0"></div>
-          <div class="preview-bottom">
-            <span><span class="square" aria-hidden="true"></span> مثال من محتوى الحزمة المقترحة</span>
-            <button class="text-button light" data-detail="studio">شوف التفاصيل <span aria-hidden="true">←</span></button>
-          </div>
-        </div>
-      </section>
-
-      <!-- شريط القيمة والضمانات -->
-      <div class="stats-banner">
-        <div class="wrap stats-grid">
-          <div class="stat-item">
-            <strong>شامل لبيئة العمل</strong>
-            <span>تغطية تقنية وإدارية ومالية لمضاعفة إنتاجيتك وزيادة أرباحك</span>
-          </div>
-          <div class="stat-item">
-            <strong>مسارات تدريب تطبيقية</strong>
-            <span>مناهج مدروسة من الأساسيات إلى هندسة الوكلاء المستقلين</span>
-          </div>
-        </div>
+    <section id="payment-result" class="result-page hidden" aria-live="polite">
+      <div class="result-card">
+        <div class="result-icon" id="result-icon">…</div>
+        <p class="eyebrow">نتيجة الطلب</p>
+        <h1 id="result-title">جارٍ التحقق من عملية الدفع</h1>
+        <p id="result-message">نتأكد من حالة الفاتورة مباشرة من مزود الدفع.</p>
+        <div id="result-actions" class="result-actions"></div>
       </div>
+    </section>
 
-      <!-- لمحة من رف المهارات (Home Preview) -->
-      <section class="collection wrap section-space" id="collection" aria-labelledby="collection-title">
-        <div class="section-header">
-          <div>
-            <h2 id="collection-title">مهارات نماذج الذكاء الاصطناعي</h2>
+    <div id="landing-content">
+      <section class="hero wrap">
+        <div class="hero-copy">
+          <p class="eyebrow"><span></span> UDDAH / COMPLETE KIT</p>
+          <h1>خلّ مساعدك الذكي<br><mark>يتعلّم طريقة شغلك.</mark></h1>
+          <p class="lead">أربع مهارات تقنية مترابطة تعطي مساعدك قواعد واضحة للتصميم، الواجهات، الخلفية، وقواعد البيانات — مع دليل بداية وقوالب تسليم بين كل مرحلة والثانية.</p>
+          <div class="hero-buy">
+            <button class="button primary" data-buy>اشتر الحزمة الآن <span>←</span></button>
+            <div class="price"><strong>499</strong><span>ر.س<br><small>دفعة واحدة</small></span></div>
           </div>
-          <div class="header-actions">
-            <button class="button primary" id="btn-explore-all-skills" style="min-height:46px;padding:10px 18px;gap:12px;">
-              عرض الكل <span aria-hidden="true">←</span>
-            </button>
-          </div>
+          <p class="microcopy">الدفع يتم في صفحة Moyasar الآمنة. لا نخزن بيانات بطاقتك.</p>
         </div>
 
-        <div class="product-grid" id="home-products-grid">
-          <!-- تُحقن بواسطة app.js -->
-        </div>
-      </section>
-
-      <!-- مسارات التدريب على الذكاء الاصطناعي -->
-      <section class="training wrap section-space" id="training" aria-labelledby="training-title" style="border-top:1px solid var(--line);">
-        <div class="section-header">
-          <div>
-            <h2 id="training-title">مسارات التدريب على أدوات الذكاء الاصطناعي</h2>
+        <div class="kit-card" aria-label="محتويات الحزمة">
+          <div class="kit-head">
+            <span class="mono">UDDAH / STUDIO KIT</span>
+            <span class="pill">01</span>
           </div>
-        </div>
-
-        <div class="training-grid" id="training-tracks-grid">
-          <!-- تُحقن بواسطة app.js -->
-        </div>
-      </section>
-
-      <!-- حزمة الاستوديو -->
-      <section class="bundle wrap" id="bundle" aria-labelledby="bundle-title">
-        <div class="bundle-copy">
-          <div class="eyebrow">03 / مهارات النموذج</div>
-          <h2 id="bundle-title">إذا بتبني من البداية،<br>خذ العُدّة كاملة.</h2>
-          <p>المهارات التقنية الأربع الأساسية، ومعها دليل يوضّح متى تستخدم كل واحدة وكيف تسلّم مخرجاتها للخطوة التالية بخصم 40%.</p>
-          <div class="bundle-purchase">
-            <button class="button dark" data-detail="studio">استكشف الحزمة <span aria-hidden="true">←</span></button>
-            <span class="bundle-price"><bdi>499</bdi> <small>ر.س / دفعة واحدة</small></span>
-          </div>
-        </div>
-        <div class="bundle-contents">
-          <div class="bundle-list-head">
-            <span>داخل الحزمة المقترحة</span>
-            <span dir="ltr" class="mono">.ZIP</span>
-          </div>
-          <ol>
-            <li><span><bdi>01</bdi> نظام التصميم</span><span dir="ltr">SKILL.md</span></li>
-            <li><span><bdi>02</bdi> تطوير الواجهات</span><span dir="ltr">SKILL.md</span></li>
-            <li><span><bdi>03</bdi> تطوير الخلفية</span><span dir="ltr">SKILL.md</span></li>
-            <li><span><bdi>04</bdi> بناء قاعدة البيانات</span><span dir="ltr">SKILL.md</span></li>
-          </ol>
-          <div class="bundle-extra">
-            <span>＋ دليل البداية وقوالب تسليم العمل</span>
+          <div class="kit-title">
+            <strong>أربع مهارات.<br>مسار عمل واحد.</strong>
             <span aria-hidden="true">↙</span>
           </div>
+          <ol>
+            <li><bdi>01</bdi><span>نظام التصميم</span><code>SKILL.md</code></li>
+            <li><bdi>02</bdi><span>تطوير الواجهات</span><code>SKILL.md</code></li>
+            <li><bdi>03</bdi><span>تطوير الخلفية</span><code>SKILL.md</code></li>
+            <li><bdi>04</bdi><span>بناء قاعدة البيانات</span><code>SKILL.md</code></li>
+          </ol>
+          <div class="kit-extra">＋ دليل البداية وقوالب تسليم العمل</div>
         </div>
       </section>
 
-      <!-- كيف تستخدمها -->
-      <section class="how wrap section-space" id="how" aria-labelledby="how-title">
-        <div class="section-header">
-          <div>
-            <div class="eyebrow muted">04 / من الملف إلى الشغل</div>
-            <h2 id="how-title">طريقة الاستخدام واضحة ومباشرة.</h2>
-          </div>
+      <section class="proof">
+        <div class="wrap proof-grid">
+          <div><strong>ملفات جاهزة</strong><span>تعليمات وقوالب وقوائم مراجعة قابلة للاستخدام مباشرة.</span></div>
+          <div><strong>مصممة للعربية</strong><span>مراعاة RTL والتسليم الواضح بين التصميم والتطوير والبيانات.</span></div>
+          <div><strong>منتج واحد</strong><span>بدون اشتراك أو سلة معقدة؛ شراء واحد وتحميل واحد.</span></div>
+        </div>
+      </section>
+
+      <section class="section wrap" id="contents">
+        <div class="section-heading">
+          <p class="eyebrow">داخل الحزمة</p>
+          <h2>كل ما يحتاجه مشروعك التقني في مسار واحد.</h2>
+          <p>بدل ما تعيد شرح طريقة العمل للمساعد في كل مرة، كل ملف يحدد له الخطوات، الضوابط، والمخرجات المتوقعة.</p>
+        </div>
+        <div class="content-grid">
+          <article><span class="num">01</span><h3>نظام التصميم</h3><p>ألوان وخطوط ومسافات ومكونات وحالات تفاعل، مع مراجعة العربية وRTL وإمكانية الوصول.</p></article>
+          <article><span class="num">02</span><h3>تطوير الواجهات</h3><p>تقسيم المكونات، الاستجابة للشاشات، حالات التحميل والخطأ، واستهلاك عقود الـ API.</p></article>
+          <article><span class="num">03</span><h3>تطوير الخلفية</h3><p>عقود API، التحقق من المدخلات، الصلاحيات، حماية الأسرار، وتوحيد معالجة الأخطاء.</p></article>
+          <article><span class="num">04</span><h3>قواعد البيانات</h3><p>الجداول والعلاقات والقيود والفهارس وخطط الترحيل الآمن بدون فقدان البيانات.</p></article>
+          <article class="wide"><span class="num">＋</span><h3>دليل البداية وقوالب التسليم</h3><p>مرجع يوضح ترتيب استخدام المهارات وكيف تمرّر مخرجات كل مرحلة للمرحلة التالية بدون فقدان السياق.</p></article>
+        </div>
+      </section>
+
+      <section class="section how wrap" id="how">
+        <div class="section-heading compact-heading">
+          <p class="eyebrow">طريقة الاستخدام</p>
+          <h2>حمّل. أضف. نفّذ.</h2>
         </div>
         <div class="steps">
-          <article>
-            <span class="step-number mono">01</span>
-            <h3>اختر المهمة</h3>
-            <p>اقرأ محتوى المهارة أو مسار التدريب. اختر ما يسدّ ثغرة حقيقية في مشروعك اليوم.</p>
-          </article>
-          <article>
-            <span class="step-number mono">02</span>
-            <h3>جهّز ملفاتك</h3>
-            <p>أضف ملف المهارة في مجلد مشروعك أو أداة التطوير التي تستخدمها، وشارك المتطلبات بوضوح.</p>
-          </article>
-          <article>
-            <span class="step-number mono">03</span>
-            <h3>نفّذ وراجع</h3>
-            <p>اطلب التنفيذ وراجع المخرج بالاعتماد على قوائم الفحص ومعايير القبول المرفقة بالملف.</p>
-          </article>
+          <article><span>01</span><h3>حمّل الحزمة</h3><p>بعد تأكيد الدفع يظهر لك رابط التحميل مباشرة.</p></article>
+          <article><span>02</span><h3>أضف المهارة</h3><p>ضع ملف المهارة المناسب داخل مشروعك أو سياق مساعدك.</p></article>
+          <article><span>03</span><h3>اطلب التنفيذ</h3><p>أعطِ المهمة والمتطلبات، ودع الملف يضبط طريقة العمل والمراجعة.</p></article>
         </div>
       </section>
 
-      <!-- الأسئلة الشائعة -->
-      <section class="faq wrap" id="faq" aria-labelledby="faq-title">
-        <div>
-          <div class="eyebrow muted">قبل ما تختار</div>
-          <h2 id="faq-title">أسئلة شائعة</h2>
-          <p>هنا التفاصيل اللي تفرق<br>قبل ما تضيف للسلة.</p>
+      <section class="checkout-section" id="checkout">
+        <div class="wrap checkout-grid">
+          <div>
+            <p class="eyebrow light">الحزمة الشاملة</p>
+            <h2>ابدأ بالحزمة كاملة.</h2>
+            <p>أربع مهارات تقنية + دليل البداية + قوالب التسليم. دفعة واحدة بدون اشتراك.</p>
+            <ul>
+              <li>نظام التصميم</li>
+              <li>تطوير الواجهات</li>
+              <li>تطوير الخلفية</li>
+              <li>بناء قاعدة البيانات</li>
+              <li>دليل البداية وقوالب التسليم</li>
+            </ul>
+          </div>
+          <div class="checkout-card">
+            <span>الإجمالي</span>
+            <div class="checkout-price"><strong>499</strong><small>ر.س</small></div>
+            <button class="button lime" id="checkout-button">المتابعة للدفع الآمن <span>←</span></button>
+            <p id="checkout-message" class="checkout-message" role="status"></p>
+            <small>سيتم تحويلك إلى صفحة الدفع المستضافة من Moyasar، ثم تعود تلقائيًا بعد نجاح العملية.</small>
+          </div>
+        </div>
+      </section>
+
+      <section class="section faq wrap" id="faq">
+        <div class="section-heading compact-heading">
+          <p class="eyebrow">قبل الشراء</p>
+          <h2>أسئلة شائعة</h2>
         </div>
         <div class="questions">
           <details>
-            <summary>وش يعني ملف مهارة؟ <span aria-hidden="true">＋</span></summary>
-            <p>ملف تعليمات يشرح للذكاء الاصطناعي طريقة العمل المعتمدة خطوة بخطوة، مع ضوابط الجودة وقوالب التسليم، لتفادي تكرار الشرح العشوائي في كل محادثة.</p>
+            <summary>وش بالضبط أستلم؟ <span>＋</span></summary>
+            <p>حزمة رقمية تشمل ملفات المهارات الأربع، دليل البداية، وقوالب تساعد على تمرير المخرجات بين مراحل المشروع.</p>
           </details>
           <details>
-            <summary>كيف تفيدني المهارات الإدارية والمالية مع المساعد؟ <span aria-hidden="true">＋</span></summary>
-            <p>المهارات غير التقنية (مثل التسعير والتوظيف والحدود المهنية) تزود النموذج بالقواعد المهنية الصارمة، ليحلل عروضك وأوصافك الوظيفية بمنهجية واقعية تمنع الخسارة والارتجال.</p>
+            <summary>هل أحتاج أداة ذكاء اصطناعي محددة؟ <span>＋</span></summary>
+            <p>الفكرة مبنية على ملفات تعليمات نصية، لذلك يمكن استخدامها مع الأدوات التي تسمح بإضافة تعليمات أو ملفات سياق للمشروع.</p>
           </details>
           <details>
-            <summary>هل مسارات التدريب تتطلب خبرة برمجية سابقة؟ <span aria-hidden="true">＋</span></summary>
-            <p>المسار المبتدئ مخصص للمستقلين وصنّاع القرار دون حاجة لأي خلفية برمجية. أما المساران المتوسط والمتقدم فهما مصممان للمطورين والمهندسين الذين يرغبون في قيادة الأدوات الحديثة وبناء وكلاء مستقلين.</p>
-          </details>
-          <details>
-            <summary>هل الأدوات المعروضة مجانية أم مدفوعة؟ <span aria-hidden="true">＋</span></summary>
-            <p>معظم الأدوات (مثل Cursor و Windsurf) توفر خططاً مجانية سخية للتجربة مع خطط مدفوعة للاستخدام الكثيف. الروابط المتاحة تنقلك للموقع الرسمي والتحميل المباشر.</p>
+            <summary>متى يظهر رابط التحميل؟ <span>＋</span></summary>
+            <p>بعد رجوعك من الدفع، يتحقق الموقع من حالة الفاتورة والمبلغ والعملة من السيرفر، ثم يظهر رابط التحميل فقط إذا كانت العملية مدفوعة بنجاح.</p>
           </details>
         </div>
       </section>
-    </div>
-
-    <!-- صفحة المهارات الكاملة المخصصة (Dedicated Skills Hub View) -->
-    <div id="skills-hub-view" class="skills-hub-view wrap">
-      <button class="hub-nav-back" id="btn-back-to-home">
-        <span aria-hidden="true">→</span> العودة إلى الصفحة الرئيسية
-      </button>
-
-      <div class="hub-hero">
-        <div class="eyebrow muted">مستودع المهارات التخصصية</div>
-        <h1>كل المهارات التي يحتاجها مشروعك.</h1>
-        <p>حزم تعليمات مصممة للذكاء الاصطناعي تغطي دورة حياة العمل بالكامل: من بناء البرمجيات والأنظمة، إلى تنظيم الموارد البشرية، حساب الأرباح، وحماية طاقتك المهنية.</p>
-      </div>
-
-      <div class="hub-controls">
-        <div class="filter-tabs" id="hub-filter-tabs">
-          <button class="filter-btn active" data-hub-cat="all">جميع الحزم (10)</button>
-          <button class="filter-btn" data-hub-cat="tech">برمجة وتصميم (4)</button>
-          <button class="filter-btn" data-hub-cat="management">إدارة وموارد بشرية (2)</button>
-          <button class="filter-btn" data-hub-cat="finance">مالية وتسعير (2)</button>
-          <button class="filter-btn" data-hub-cat="mentorship">إرشاد مهني ونفسي (2)</button>
-        </div>
-
-        <div class="hub-search-box">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px;color:var(--muted);"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-          <input type="text" id="skills-search-input" placeholder="ابحث بالاسم، الكلمات المفتاحية، أو نوع التخصص..." aria-label="بحث في المهارات">
-        </div>
-      </div>
-
-      <div class="product-grid" id="all-products-grid">
-        <!-- تُحقن بواسطة app.js -->
-      </div>
-    </div>
-
-    <!-- صفحة دليل أدوات الذكاء الاصطناعي -->
-    <div id="tools-hub-view" class="skills-hub-view wrap">
-      <button class="hub-nav-back" id="btn-back-from-tools">
-        <span aria-hidden="true">→</span> العودة إلى الصفحة الرئيسية
-      </button>
-      <div class="hub-hero">
-        <div class="eyebrow muted">دليل أدوات الذكاء الاصطناعي</div>
-        <h1>اختر الأداة المناسبة لطريقة عملك.</h1>
-        <p>دليل مركّز لأهم المحررات والوكلاء البرمجيين، مع المنصات المدعومة وروابط المواقع الرسمية.</p>
-      </div>
-      <div class="tools-grid" id="tools-directory-grid">
-        <!-- تُحقن بواسطة app.js -->
-      </div>
     </div>
   </main>
 
   <footer class="footer">
-    <div class="wrap footer-top">
-      <a class="brand" href="#" id="footer-brand-link">
-        <span class="brand-word">عُدّة<span class="brand-dot">.</span></span>
-      </a>
-      <p>طريقة أوضح.<br>ومساحة أكبر للشغل والإنتاج.</p>
-      <a href="#collection" id="footer-back-to-skills">ارجع للمهارات <span aria-hidden="true">↑</span></a>
-    </div>
-    <div class="wrap footer-bottom">
-      <span>عُدّة — منصة مهارات وتدريب وأدوات الذكاء الاصطناعي</span>
-      <span>صُمّم للعربية من البداية لخدمة المحترفين العرب.</span>
-      <span class="mono" dir="ltr">EST. 2026 / FULL HUB</span>
+    <div class="wrap footer-inner">
+      <a class="brand" href="/"><span class="brand-word">عُدّة<span>.</span></span></a>
+      <p>طريقة أوضح لمساعدك. شغل أقل تكرارًا.</p>
+      <a href="#checkout">اشتر الحزمة ↑</a>
     </div>
   </footer>
-
-  <!-- النوافذ المنبثقة للحوار والسلة -->
-  <dialog id="product-dialog" class="product-dialog" aria-labelledby="dialog-title">
-    <button class="close-button" data-close aria-label="إغلاق تفاصيل المهارة">×</button>
-    <div id="product-content"></div>
-  </dialog>
-
-  <dialog id="cart-dialog" class="cart-dialog" aria-labelledby="cart-title">
-    <div class="cart-header">
-      <h2 id="cart-title">سلتك</h2>
-      <button class="close-button" data-close aria-label="إغلاق السلة">×</button>
-    </div>
-    <div id="cart-content"></div>
-  </dialog>
-
-  <div class="toast" id="toast" role="status" aria-live="polite"></div>
 </body>
 </html>
