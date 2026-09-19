@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#17241e">
+  <title>عُدّة — مهارات لها شغل</title>
+  <meta name="description" content="حزم مهارات للتصميم والتطوير وقواعد البيانات. اختر ما يحتاجه مشروعك، واطّلع على الملفات وطريقة استخدامها قبل الاختيار.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23d4f574'/%3E%3Ctext x='32' y='46' font-size='48' text-anchor='middle' fill='%2317241e'%3Eع%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">انتقل إلى المحتوى</a>
+  <div class="concept-bar"><span>تصوّر أولي للمتجر</span><span>الأسعار مبدئية · الدفع غير مفعّل</span></div>
+  <header class="header wrap">
+    <a class="brand" href="#" aria-label="عُدّة، الرئيسية"><span class="brand-word">عُدّة<span class="brand-dot">.</span></span><span class="brand-note">مهارات لها شغل</span></a>
+    <nav aria-label="التنقل الرئيسي"><a href="#collection">المهارات</a><a href="#bundle">حزمة الاستوديو</a><a href="#how">كيف تستخدمها؟</a></nav>
+    <button class="bag-button" id="open-cart" aria-label="افتح السلة"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 8h14l1 13H4L5 8Z"/><path d="M8 9V6a4 4 0 0 1 8 0v3"/></svg><span>السلة</span><span id="cart-count" class="count">0</span></button>
+  </header>
+  <main id="main">
+    <section class="hero wrap" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="short-line"></span>للمستقلين والفرق الصغيرة</div>
+        <h1 id="hero-title">شغلك له طريقة.<br>خلّ مساعدك<br><span class="marked">يتعلّمها.</span></h1>
+        <p>مهارات توضّح لمساعدك كيف يصمّم، ويطوّر، ويراجع شغله. اختر ما ينقص مشروعك، وابدأ بتعليمات مرتّبة بدل ما تعيد شرح كل شيء.</p>
+        <a class="button primary" href="#collection">اختر مهارتك <span aria-hidden="true">←</span></a>
+        <div class="hero-footnote"><span class="tiny-file" aria-hidden="true">↳</span> ملفات قابلة للتعديل. طريقة العمل تصير على مقاسك.</div>
+      </div>
+      <div class="hero-preview" aria-label="معاينة ملفات حزمة الاستوديو">
+        <div class="preview-top"><span class="mono" dir="ltr">UDDAH / STUDIO KIT</span><span class="edition">الإصدار المقترح 01</span></div>
+        <div class="preview-heading"><span>أربع تخصّصات.<br>مشروع واحد.</span><span class="preview-symbol" aria-hidden="true">↙</span></div>
+        <div class="file-tabs" role="tablist" aria-label="معاينة المهارات">
+          <button role="tab" aria-selected="true" aria-controls="file-panel" id="tab-design" data-preview="design">التصميم</button>
+          <button role="tab" aria-selected="false" aria-controls="file-panel" id="tab-frontend" data-preview="frontend" tabindex="-1">الواجهة</button>
+          <button role="tab" aria-selected="false" aria-controls="file-panel" id="tab-backend" data-preview="backend" tabindex="-1">الخادم</button>
+          <button role="tab" aria-selected="false" aria-controls="file-panel" id="tab-database" data-preview="database" tabindex="-1">البيانات</button>
+        </div>
+        <div class="file-panel" role="tabpanel" id="file-panel" aria-labelledby="tab-design" tabindex="0"></div>
+        <div class="preview-bottom"><span><span class="square" aria-hidden="true"></span> مثال من محتوى الحزمة المقترحة</span><button class="text-button light" data-detail="studio">شوف التفاصيل <span aria-hidden="true">←</span></button></div>
+      </div>
+    </section>
+    <div class="principles"><div class="wrap principles-inner"><span>تعليمات واضحة</span><span class="separator">/</span><span>قوالب تبدأ منها</span><span class="separator">/</span><span>مخرجات تعرف تراجعها</span><span class="principles-end mono" dir="ltr">GOOD WORK STARTS WITH A METHOD.</span></div></div>
+    <section class="collection wrap section-space" id="collection" aria-labelledby="collection-title">
+      <div class="section-header"><div><div class="eyebrow muted">01 / رفّ المهارات</div><h2 id="collection-title">خذ اللي يحتاجه شغلك.</h2></div><p>كل مهارة لها دور محدد.<br>ابدأ بواحدة، أو اجمع الفريق كامل.</p></div>
+      <div class="product-grid">
+        <article class="product-card" data-product="design"><div class="card-top"><span class="mono" dir="ltr">01 / DESIGN SYSTEM</span><span class="pill">للتصميم</span></div><div class="product-mark design-mark" aria-hidden="true">Aa<span>أب</span></div><h3>نظام التصميم</h3><p>ألوان، خطوط ومكونات ترجع لها كل مرة. عشان الصفحة الجديدة تحسّها من نفس المنتج.</p><div class="tags"><span>متغيرات التصميم</span><span>عربي وRTL</span></div><div class="card-footer"><span class="price"><bdi>149</bdi> <small>ر.س</small></span><button class="detail-button" data-detail="design" aria-label="تفاصيل مهارة نظام التصميم">التفاصيل <span aria-hidden="true">↖</span></button></div></article>
+        <article class="product-card" data-product="frontend"><div class="card-top"><span class="mono" dir="ltr">02 / FRONTEND</span><span class="pill">للواجهات</span></div><div class="product-mark mono" dir="ltr" aria-hidden="true">&lt;/&gt;</div><h3>تطوير الواجهات</h3><p>حوّل التصميم إلى صفحات تعمل؛ من أول ضغطة إلى حالات التحميل والخطأ والشاشات الصغيرة.</p><div class="tags"><span>مكونات الواجهة</span><span>تصميم متجاوب</span></div><div class="card-footer"><span class="price"><bdi>179</bdi> <small>ر.س</small></span><button class="detail-button" data-detail="frontend" aria-label="تفاصيل مهارة تطوير الواجهات">التفاصيل <span aria-hidden="true">↖</span></button></div></article>
+        <article class="product-card" data-product="backend"><div class="card-top"><span class="mono" dir="ltr">03 / BACKEND</span><span class="pill">للخادم</span></div><div class="product-mark mono" dir="ltr" aria-hidden="true">{&nbsp;}</div><h3>تطوير الخلفية</h3><p>رتّب ما يحدث خلف الواجهة: الطلبات، قواعد العمل، والصلاحيات. وحدّد كيف يتصرف النظام إذا تعثّر الطلب.</p><div class="tags"><span>عقود API</span><span>صلاحيات الوصول</span></div><div class="card-footer"><span class="price"><bdi>179</bdi> <small>ر.س</small></span><button class="detail-button" data-detail="backend" aria-label="تفاصيل مهارة تطوير الخلفية">التفاصيل <span aria-hidden="true">↖</span></button></div></article>
+        <article class="product-card" data-product="database"><div class="card-top"><span class="mono" dir="ltr">04 / DATABASE</span><span class="pill">للبيانات</span></div><div class="product-mark mono database-mark" dir="ltr" aria-hidden="true">[ : ]</div><h3>بناء قاعدة البيانات</h3><p>ابدأ بعلاقات واضحة بين بياناتك، وخطة لتغييرها لاحقًا. من تصميم الجداول إلى مراجعة الاستعلامات.</p><div class="tags"><span>العلاقات والقيود</span><span>ترحيل البيانات</span></div><div class="card-footer"><span class="price"><bdi>149</bdi> <small>ر.س</small></span><button class="detail-button" data-detail="database" aria-label="تفاصيل مهارة بناء قاعدة البيانات">التفاصيل <span aria-hidden="true">↖</span></button></div></article>
+      </div>
+      <p class="collection-note">هذه معاينة لتشكيلة المتجر. المحتوى والأسعار النهائية تُعتمد قبل إتاحة الشراء.</p>
+    </section>
+    <section class="bundle wrap" id="bundle" aria-labelledby="bundle-title">
+      <div class="bundle-copy"><div class="eyebrow">02 / حزمة الاستوديو</div><h2 id="bundle-title">إذا بتبني من البداية،<br>خذ العُدّة كاملة.</h2><p>المهارات الأربع، ومعها دليل يوضّح متى تستخدم كل واحدة وكيف تسلّم مخرجاتها للخطوة التالية.</p><div class="bundle-purchase"><button class="button dark" data-detail="studio">استكشف الحزمة <span aria-hidden="true">←</span></button><span class="bundle-price"><bdi>499</bdi> <small>ر.س / دفعة واحدة</small></span></div></div>
+      <div class="bundle-contents"><div class="bundle-list-head"><span>داخل الحزمة المقترحة</span><span dir="ltr" class="mono">.ZIP</span></div><ol><li><span><bdi>01</bdi> نظام التصميم</span><span dir="ltr">SKILL.md</span></li><li><span><bdi>02</bdi> تطوير الواجهات</span><span dir="ltr">SKILL.md</span></li><li><span><bdi>03</bdi> تطوير الخلفية</span><span dir="ltr">SKILL.md</span></li><li><span><bdi>04</bdi> بناء قاعدة البيانات</span><span dir="ltr">SKILL.md</span></li></ol><div class="bundle-extra"><span>＋ دليل البداية وقوالب تسليم العمل</span><span aria-hidden="true">↙</span></div></div>
+    </section>
+    <section class="how wrap section-space" id="how" aria-labelledby="how-title"><div class="section-header"><div><div class="eyebrow muted">03 / من الملف إلى الشغل</div><h2 id="how-title">اعرف وش بتستخدم.</h2></div><p>المهارة دليل عمل لمساعدك.<br>وأدوات التنفيذ توفّرها بيئتك.</p></div><div class="steps"><article><span class="step-number mono">01</span><h3>اختر المهمة</h3><p>اقرأ محتوى المهارة ومتطلباتها. اختَرها على حسب شغلك والأداة التي تستخدمها.</p></article><article><span class="step-number mono">02</span><h3>جهّز ملفاتك</h3><p>اتبع دليل البداية لإضافة المهارة في بيئة تدعمها، ثم شارك متطلبات مشروعك ومراجعه.</p></article><article><span class="step-number mono">03</span><h3>نفّذ وراجع</h3><p>اطلب المهمة، وراجع النتيجة بمعايير القبول المرفقة. عدّل التعليمات مع تطوّر طريقتك.</p></article></div></section>
+    <section class="faq wrap" aria-labelledby="faq-title"><div><div class="eyebrow muted">قبل ما تختار</div><h2 id="faq-title">أسئلة في محلّها.</h2><p>هنا التفاصيل اللي تفرق<br>قبل ما تضيف للسلة.</p></div><div class="questions"><details><summary>وش يعني ملف مهارة؟ <span aria-hidden="true">＋</span></summary><p>ملف تعليمات يشرح للمساعد متى يستخدم طريقة عمل محددة وكيف ينفّذها. وقد ترافقه مراجع وقوالب أو سكربتات. الملف وحده ليس تطبيقًا مستقلًا.</p></details><details><summary>هل يكفي أرفع ملف ZIP إلى المحادثة؟ <span aria-hidden="true">＋</span></summary><p>الرفع وحده لا يعني تثبيت المهارات. الطريقة تعتمد على الأداة وقدرتها على قراءة الملفات وتشغيل المهارات. نحدّد البيئات المختبرة وخطوات الإعداد قبل طرح الحزم للبيع.</p></details><details><summary>هل الحزمة تشمل اشتراك أدوات الذكاء الاصطناعي؟ <span aria-hidden="true">＋</span></summary><p>لا. اشتراكات الأدوات وتكاليف تشغيلها منفصلة. وتحتاج بعض المهام إلى ربط أدوات إضافية أو تهيئة بيئة تطوير.</p></details><details><summary>أقدر أعدّل المهارات على طريقة شغلي؟ <span aria-hidden="true">＋</span></summary><p>التصور مبني على ملفات قابلة للتعديل داخل مشاريعك. شروط الاستخدام وإعادة التوزيع، وتراخيص أي مكونات خارجية، ستُعرض بوضوح قبل الشراء.</p></details></div></section>
+  </main>
+  <footer class="footer"><div class="wrap footer-top"><a class="brand" href="#"><span class="brand-word">عُدّة<span class="brand-dot">.</span></span></a><p>طريقة أوضح.<br>ومساحة أكبر للشغل.</p><a href="#collection">ارجع للمهارات <span aria-hidden="true">↑</span></a></div><div class="wrap footer-bottom"><span>عُدّة — تصور متجر حزم المهارات</span><span>صُمّم للعربية من البداية.</span><span class="mono" dir="ltr">EST. 2026 / CONCEPT 01</span></div></footer>
+  <dialog id="product-dialog" class="product-dialog" aria-labelledby="dialog-title"><button class="close-button" data-close aria-label="إغلاق تفاصيل المهارة">×</button><div id="product-content"></div></dialog>
+  <dialog id="cart-dialog" class="cart-dialog" aria-labelledby="cart-title"><div class="cart-header"><h2 id="cart-title">سلتك</h2><button class="close-button" data-close aria-label="إغلاق السلة">×</button></div><div id="cart-content"></div></dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
