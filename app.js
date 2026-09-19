@@ -29,7 +29,11 @@ async function startCheckout() {
       throw new Error(data.error || 'تعذر إنشاء فاتورة الدفع.');
     }
 
-    sessionStorage.setItem(INVOICE_STORAGE_KEY, data.invoiceId);
+    try {
+      sessionStorage.setItem(INVOICE_STORAGE_KEY, data.invoiceId);
+    } catch {
+      throw new Error('تعذر حفظ بيانات الطلب في المتصفح. تأكد من السماح بالتخزين المؤقت ثم حاول مرة أخرى.');
+    }
     window.location.assign(data.url);
   } catch (error) {
     checkoutMessage.textContent = error.message || 'تعذر بدء عملية الدفع. حاول مرة أخرى.';
@@ -46,11 +50,20 @@ function showResult() {
   window.scrollTo({ top: 0 });
 }
 
-function setResult({ icon, title, message, actionHtml = '' }) {
+function createLink(label, href, className = 'button primary') {
+  const link = document.createElement('a');
+  link.className = className;
+  link.href = href;
+  link.textContent = label;
+  return link;
+}
+
+function setResult({ icon, title, message, actions = [] }) {
   document.querySelector('#result-icon').textContent = icon;
   document.querySelector('#result-title').textContent = title;
   document.querySelector('#result-message').textContent = message;
-  document.querySelector('#result-actions').innerHTML = actionHtml;
+  const actionContainer = document.querySelector('#result-actions');
+  actionContainer.replaceChildren(...actions);
 }
 
 async function verifyCompletedCheckout() {
@@ -65,7 +78,7 @@ async function verifyCompletedCheckout() {
       icon: '!',
       title: 'تعذر التحقق تلقائيًا',
       message: 'لم نجد رقم الفاتورة في هذه الجلسة. إذا تم الخصم فعلاً، احتفظ بإيصال Moyasar وتواصل معنا للتحقق.',
-      actionHtml: '<a class="button secondary" href="/">العودة للموقع</a>',
+      actions: [createLink('العودة للموقع', '/', 'button secondary')],
     });
     return;
   }
@@ -86,7 +99,7 @@ async function verifyCompletedCheckout() {
         icon: '×',
         title: 'الدفع غير مكتمل',
         message: 'لم تؤكد Moyasar أن الفاتورة مدفوعة. يمكنك العودة والمحاولة مرة أخرى.',
-        actionHtml: '<a class="button primary" href="/#checkout">العودة للدفع</a>',
+        actions: [createLink('العودة للدفع', '/#checkout')],
       });
       return;
     }
@@ -94,26 +107,42 @@ async function verifyCompletedCheckout() {
     sessionStorage.removeItem(INVOICE_STORAGE_KEY);
 
     if (data.downloadUrl) {
+      const downloadUrl = new URL(data.downloadUrl, window.location.origin);
+      if (!['http:', 'https:'].includes(downloadUrl.protocol)) {
+        throw new Error('رابط التحميل غير صالح. تواصل معنا مع رقم الفاتورة لإرسال الحزمة.');
+      }
+
+      const downloadLink = createLink('تحميل حزمة عُدّة ↓', downloadUrl.href);
+      downloadLink.rel = 'noopener';
       setResult({
         icon: '✓',
         title: 'تمت عملية الشراء',
         message: 'تم التحقق من الدفع بنجاح. الحزمة جاهزة للتحميل.',
-        actionHtml: `<a class="button primary" href="${data.downloadUrl}" rel="noopener">تحميل حزمة عُدّة <span>↓</span></a><a class="text-link" href="/">العودة للرئيسية</a>`,
+        actions: [downloadLink, createLink('العودة للرئيسية', '/', 'text-link')],
       });
     } else {
+      const invoiceRef = document.createElement('p');
+      invoiceRef.className = 'invoice-ref mono';
+      invoiceRef.dir = 'ltr';
+      invoiceRef.textContent = invoiceId;
       setResult({
         icon: '✓',
         title: 'تم الدفع بنجاح',
         message: 'تم تأكيد الدفع، لكن رابط التحميل لم يتم ضبطه في إعدادات الموقع بعد. احتفظ برقم الفاتورة كمرجع.',
-        actionHtml: `<p class="invoice-ref mono" dir="ltr">${invoiceId}</p><a class="button secondary" href="/">العودة للرئيسية</a>`,
+        actions: [invoiceRef, createLink('العودة للرئيسية', '/', 'button secondary')],
       });
     }
   } catch (error) {
+    const retryButton = document.createElement('button');
+    retryButton.className = 'button primary';
+    retryButton.type = 'button';
+    retryButton.textContent = 'إعادة التحقق';
+    retryButton.addEventListener('click', () => window.location.reload());
     setResult({
       icon: '!',
       title: 'تعذر التحقق الآن',
       message: error.message || 'حدث خطأ أثناء التحقق. لا تعِد الدفع قبل التأكد من حالة العملية.',
-      actionHtml: '<button class="button primary" onclick="window.location.reload()">إعادة التحقق</button>',
+      actions: [retryButton],
     });
   }
 }
